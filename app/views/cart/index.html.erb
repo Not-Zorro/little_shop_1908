@@ -25,4 +25,6 @@
     <p>Grand total: $<%= cart.grand_total %></p>
     <%= link_to "Empty Cart", '/cart/empty', method: :delete %>
   <% end %>
+
+  <%= link_to "Proceed to checkout", '/cart/checkout' %>
 </section>
