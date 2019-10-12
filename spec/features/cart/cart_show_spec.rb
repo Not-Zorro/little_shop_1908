@@ -194,11 +194,4 @@ describe "Cart Index" do
 
     expect(current_path).to eq('/cart/checkout')
   end
-  # As a visitor
-  # When I have items in my cart
-  # And I visit my cart
-  # I see a button or link to Checkout
-  # When I click that button, I am taken to the new order page
-
-
 end

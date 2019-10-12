@@ -1,0 +1,27 @@
+<section class="order-section">
+  <% @items.each do |item, quantity| %>
+    <section id="item-order-<%= item.id %>">
+      <p>Name: <%= item.name %></p>
+      <p>Sold by: <%= item.merchant.name %></p>
+      <p>Price: $<%= item.price %></p>
+      <p>Quantity: <%= quantity %></p>
+      <p>Subtotal: $<%= item.price * quantity %></p>
+    </section>
+  <% end %>
+
+  <p>Grand total: $<%= cart.grand_total %></p>
+
+  <%= form_tag '/cart/order/submit', method: :post do %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+    <%= label_tag :address %>
+    <%= text_field_tag :address %>
+    <%= label_tag :city %>
+    <%= text_field_tag :city %>
+    <%= label_tag :state %>
+    <%= text_field_tag :state %>
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip %>
+    <%= submit_tag 'Order' %>
+  <% end %>
+</section>
