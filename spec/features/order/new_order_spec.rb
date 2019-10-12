@@ -1,22 +1,6 @@
 require 'rails_helper'
 
 describe "New order page" do
-    # As a visitor
-    # When I check out from my cart
-    # On the new order page I see the details of my cart:
-    # - the name of the item
-    # - the merchant I'm buying this item from
-    # - the price of the item
-    # - my desired quantity of the item
-    # - a subtotal (price multiplied by quantity)
-    # - a grand total of what everything in my cart will cost
-    # I also see a form to where I must enter my shipping information for the order:
-    # - name
-    # - address
-    # - city
-    # - state
-    # - zip
-    # I also see a button to 'Create Order'
   it "can show info about order" do
     meg = Merchant.create(name: "Meg's Bike Shop", address: '123 Bike Rd.', city: 'Denver', state: 'CO', zip: 80203)
     brian = Merchant.create(name: "Brian's Dog Shop", address: '125 Doggo St.', city: 'Denver', state: 'CO', zip: 80210)
