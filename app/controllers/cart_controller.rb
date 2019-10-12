@@ -25,8 +25,10 @@ class CartController < ApplicationController
   def update_item
     if params[:type] == "add_item"
       cart.increase_quantity(params[:item_id])
+    elsif params[:type] == "subtract_item"
+      cart.decrease_quantity(params[:item_id])
     end
-    
+
     redirect_to '/cart'
   end
 end
