@@ -21,4 +21,12 @@ class CartController < ApplicationController
     session[:cart].delete(params[:item_id])
     redirect_to '/cart'
   end
+
+  def update_item
+    if params[:type] == "add_item"
+      cart.increase_quantity(params[:item_id])
+    end
+    
+    redirect_to '/cart'
+  end
 end

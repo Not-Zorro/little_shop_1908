@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/merchants/:id/edit", to: "merchants#edit"
   patch "/merchants/:id", to: "merchants#update"
   delete "/merchants/:id", to: "merchants#destroy"
+  patch "/cart/:item_id/:type", to: "cart#update_item"
   patch "/cart/:item_id", to: "cart#update"
 
   get "/items", to: "items#index"

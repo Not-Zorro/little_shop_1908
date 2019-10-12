@@ -31,4 +31,8 @@ class Cart
   def empty_cart
     @contents = Hash.new(0)
   end
+
+  def increase_quantity(item_id)
+    @contents[item_id] += 1
+  end
 end

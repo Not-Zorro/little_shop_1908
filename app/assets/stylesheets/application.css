@@ -69,27 +69,46 @@ ul{
   text-align: center;
 }
 img{
-  width: 50%;
+  width: 90%;
 }
 
 .cart_image {
   fill: white;
 }
 
+.cart_add_svg {
+ height: 36px;
+ width: 36px;
+}
+
+.cart_add_button {
+  background-color: transparent;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+
+.cart_add_button:hover {
+  background-color: transparent;
+  border: 3px solid tomato;
+  cursor: pointer;
+}
+
  .grid-container{
  	display: grid;
  	grid-template-columns: repeat(5,1fr);
  	grid-template-rows: auto;
- 	grid-gap: 30px;
+  grid-gap: 30px;
+  margin: 0 auto;
+   
  }
 
  .grid-item{
- 	background-color: #17BEBB;
+ 	background-color: white;
  	padding: 20px;
   border: solid;
  	border-radius: 12px;
   border-color: #002244;
- 	text-align: center
+   text-align: center;
  }
  .item-show-grid{
   width: 60%;
@@ -130,7 +149,7 @@ img{
    text-align: center;
  }
 
- input[type=text], select, option {
+ /* input[type=text], select, option {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -138,13 +157,13 @@ img{
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
+} */
 
 select {
   height: 40px;
 }
 
-input[type=submit] {
+/* input[type=submit] {
   width: 100%;
   background-color: #17BEBB;
   color: white;
@@ -153,11 +172,12 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
-input[type=submit]:hover {
+/* input[type=submit]:hover {
   background-color: #45a049;
-}
+} */
+
 form {
   align-content: center;
   margin: 20% auto 0;
