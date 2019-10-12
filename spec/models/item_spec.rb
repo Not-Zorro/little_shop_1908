@@ -12,5 +12,7 @@ describe Item, type: :model do
   describe "relationships" do
     it { should belong_to :merchant }
     it { should have_many :reviews }
+    it { should have_many :item_orders }
+    it { should have_many :orders }
   end
 end
