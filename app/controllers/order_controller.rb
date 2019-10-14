@@ -6,21 +6,25 @@ class OrderController < ApplicationController
   end
 
   def create 
-    order = Order.create(token: Order.token)
+    order = Order.create(
+      token: Order.token, 
+      grand_total: cart.grand_total
+    )
     session[:customer] = customer_params
     cart.cart_items.each do |cart_item, amount| 
       order.item_orders.create(
         quantity: amount,
         order_id: order.id,
         item_id: cart_item.id
-        )
-      end 
+      )
+    end
+    cart.empty_cart
+    session[:cart] = cart.contents
     redirect_to "/order/#{order.id}"
   end
 
   def show
     @order = Order.find(params[:order_id])
-    
   end
 
   private 
