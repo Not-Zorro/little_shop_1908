@@ -15,6 +15,6 @@
       <p><%= item_info[:price] * item_order[:quantity] %></p>
     </section>
   <% end %>
-  <p>Grand total: $<%= cart.grand_total %></p>
+  <p>Grand total: $<%= @order.grand_total %></p>
   <p>Order placed on: <%= @order.date %></p>
 </section>
