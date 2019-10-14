@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20191012203149) do
 
   create_table "item_orders", force: :cascade do |t|
     t.integer "quantity"
+    t.string "city"
     t.bigint "item_id"
     t.bigint "order_id"
     t.index ["item_id"], name: "index_item_orders_on_item_id"
