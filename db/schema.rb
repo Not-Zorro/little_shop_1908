@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20191012203149) do
 
   create_table "orders", force: :cascade do |t|
     t.string "token"
+    t.decimal "grand_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
