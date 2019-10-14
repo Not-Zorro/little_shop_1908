@@ -15,7 +15,7 @@ class OrderController < ApplicationController
       cart.cart_items.each do |cart_item, amount|
         order.item_orders.create(
           quantity: amount,
-          city: params[:city],
+          city: params["city"],
           order_id: order.id,
           item_id: cart_item.id
         )
