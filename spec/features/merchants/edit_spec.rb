@@ -40,7 +40,7 @@ RSpec.describe "As a Visitor" do
 
       fill_in :name, with: ""
       click_button "Update Merchant"
-      expect(page).to have_content("Please fill in all fields")
+      expect(page).to have_content("Name can't be blank")
     end
   end
 end
