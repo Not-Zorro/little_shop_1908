@@ -50,5 +50,16 @@ RSpec.describe "Create Merchant Items" do
       expect(page).to_not have_content(new_item.description)
       expect(page).to have_content("Inventory: #{new_item.inventory}")
     end
+
+    it "has a flash message when not filling in all fields" do
+      visit "/merchants/#{@brian.id}/items"
+      click_on "Add New Item"
+
+      fill_in :name, with: ""
+      click_button "Create Item"
+      within "#header" do
+        expect(page).to have_content("Name can't be blank")
+      end
+    end
   end
 end

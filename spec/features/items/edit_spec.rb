@@ -42,6 +42,14 @@ RSpec.describe "As a Visitor" do
         expect(page).to have_content("They're a bit more expensive, and they kinda do pop sometimes, but whatevs.. this is retail.")
         expect(page).to_not have_content("They'll never pop!")
       end
+
+      it "has a flash message when not filling in all fields" do
+        fill_in 'Name', with: ""
+        click_button "Update Item"
+        within "#header" do
+          expect(page).to have_content("Name can't be blank")
+        end
+      end
     end
   end
 end
