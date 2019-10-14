@@ -30,5 +30,14 @@ RSpec.describe 'merchant new page', type: :feature do
       expect(new_merchant.zip).to eq(zip)
     end
 
+    it 'cant create new merchant without all fields filled in' do
+      visit '/merchants/new'
+
+      click_button "Create Merchant"
+
+      within "#header" do
+        expect(page).to have_content("Please fill in all fields")
+      end
+    end
   end
 end
