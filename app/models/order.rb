@@ -5,4 +5,8 @@ class Order < ApplicationRecord
   def self.token
     SecureRandom.hex(5)
   end
+
+  def date
+    created_at.strftime('%B %d, %Y')
+  end
 end
