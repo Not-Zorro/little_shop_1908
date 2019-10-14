@@ -1,4 +1,4 @@
-class Item <ApplicationRecord
+class Item < ApplicationRecord
   belongs_to :merchant
   has_many :reviews
   has_many :item_orders
@@ -22,5 +22,13 @@ class Item <ApplicationRecord
 
   def worst_reviews 
     reviews.order(:rating)[0..2]
+  end
+
+  def delete_reviews 
+    reviews.delete_all
+  end
+
+  def subtotal(quantity)
+    price * quantity
   end
 end

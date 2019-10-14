@@ -8,7 +8,7 @@ class ItemOrder < ApplicationRecord
     item_details[:name] = item.name
     item_details[:merchant] = item.merchant
     item_details[:price] = item.price
-
+    item_details[:subtotal] = item.price * self.quantity
     item_details
   end
 

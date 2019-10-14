@@ -27,14 +27,17 @@ class MerchantsController <ApplicationController
   end
 
   def destroy
-    Item.delete(Item.where(merchant_id: params[:id]))
-    Merchant.destroy(params[:id])
+    merchant = Merchant.find(params[:id])
+    merchant.items.each do |item|
+      item.delete_reviews
+    end
+    merchant.items.destroy_all
+    merchant.destroy
     redirect_to '/merchants'
   end
-
+  
   private
-
-  def merchant_params
-    params.permit(:name,:address,:city,:state,:zip)
-  end
+    def merchant_params
+      params.permit(:name,:address,:city,:state,:zip)
+    end
 end
