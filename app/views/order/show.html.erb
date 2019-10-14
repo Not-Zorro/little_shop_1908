@@ -12,7 +12,7 @@
       <p><%= item_info[:price] %></p>
       <p><%= item_info[:merchant].name %></p>
       <p><%= item_order[:quantity] %></p>
-      <p><%= item_info[:price] * item_order[:quantity] %></p>
+      <p><%= number_to_currency(item_order[:subtotal]) %></p>
     </section>
   <% end %>
   <p>Grand total: $<%= @order.grand_total %></p>
