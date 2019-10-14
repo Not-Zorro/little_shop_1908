@@ -33,5 +33,14 @@ RSpec.describe "As a Visitor" do
       expect(page).to have_content("Brian's Super Cool Bike Shop")
       expect(page).to have_content("1234 New Bike Rd.\nDenver, CO 80204")
     end
+
+    it "cant update merchant with unfilled fields" do
+      visit "/merchants/#{@bike_shop.id}"
+      click_on "Update Merchant"
+
+      fill_in :name, with: ""
+      click_button "Update Merchant"
+      expect(page).to have_content("Please fill in all fields")
+    end
   end
 end
