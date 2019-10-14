@@ -11,4 +11,16 @@ class Merchant < ApplicationRecord
   def has_orders?
     !item_orders.joins(:item).empty?
   end
+
+  def count_of_items
+    items.length
+  end
+
+  def avg_item_price
+    items.average(:price)
+  end
+
+  def cities_ordered
+    item_orders.select(:city).uniq
+  end
 end
