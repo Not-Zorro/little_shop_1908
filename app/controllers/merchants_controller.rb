@@ -16,7 +16,7 @@ class MerchantsController <ApplicationController
     if merchant.save
       redirect_to "/merchants"
     else
-      flash.now[:notice] = "Please fill in all fields"
+      flash[:notice] = merchant.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -31,7 +31,7 @@ class MerchantsController <ApplicationController
     if merchant.save
       redirect_to "/merchants/#{merchant.id}"
     else
-      flash[:notice] = "Please fill in all fields"
+      flash[:notice] = merchant.errors.full_messages.to_sentence
       redirect_to "/merchants/#{params[:id]}/edit"
     end
   end
