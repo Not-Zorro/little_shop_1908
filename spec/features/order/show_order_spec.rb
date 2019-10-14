@@ -35,8 +35,24 @@ RSpec.describe "Order Show page" do
       click_button "Order"
    
       order_1 = Order.last
-
+ 
       expect(current_path).to eq("/order/#{order_1.id}")
+      within ('.customer-info-section') do
+        expect(page).to have_content("Hill Stew")
+        expect(page).to have_content("123 Cranberry Dr")
+        expect(page).to have_content("Denver, Colorado 80210")
+      end
+
+      within ("#item-order-#{order_1.item_orders.first.id}") do
+        expect(page).to have_content(pull_toy.name)
+        expect(page).to have_content(pull_toy.price)
+        expect(page).to have_content(pull_toy.merchant.name)
+        expect(page).to have_content("1")
+        expect(page).to have_content("10")
+      end
+
+      expect(page).to have_content("$50")
+      expect(page).to have_content("Order placed on: #{order_1.date}")
     end
   end
 end

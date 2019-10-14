@@ -1,19 +1,20 @@
 <h1>Thank you for your order</h1>
 <section class="customer-info-section">
-  <p><%= session[:customer]["name"] %></p>
-  <p><%= session[:customer]["address"] %></p>
-  <p><%= session[:customer]["city"] %></p>
-  <p><%= session[:customer]["state"] %></p>
-  <p><%= session[:customer]["zip"] %></p>
+  <p><%= customer.name %></p>
+  <p><%= customer.address %></p>
+  <p><%= customer.city %>, <%= customer.state %> <%= customer.zip %></p>
 </section>
 <section class="order-info-section">
   <% @order.item_orders.each do |item_order| %>
-    <% item_info = item_order.item_info %>
-    <p><%= item_info[:name] %></p>
-    <p><%= item_info[:price] %></p>
-    <p><%= item_info[:merchant].name %></p>
-    <p><%= item_order[:quantity] %></p>
-    <p><%= item_info[:price] * item_order[:quantity] %></p>
+    <section id="item-order-<%= item_order.id %>">
+      <% item_info = item_order.item_info %>
+      <p><%= item_info[:name] %></p>
+      <p><%= item_info[:price] %></p>
+      <p><%= item_info[:merchant].name %></p>
+      <p><%= item_order[:quantity] %></p>
+      <p><%= item_info[:price] * item_order[:quantity] %></p>
+    </section>
   <% end %>
   <p>Grand total: $<%= cart.grand_total %></p>
+  <p>Order placed on: <%= @order.date %></p>
 </section>
