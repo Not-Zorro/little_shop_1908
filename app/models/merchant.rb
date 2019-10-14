@@ -8,10 +8,6 @@ class Merchant < ApplicationRecord
                         :state,
                         :zip
 
-  def has_orders?
-    !item_orders.joins(:item).empty?
-  end
-
   def count_of_items
     items.length
   end
