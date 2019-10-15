@@ -17,6 +17,6 @@ class Merchant < ApplicationRecord
   end
 
   def cities_ordered
-    item_orders.select(:city).uniq
+    item_orders.select(:city).distinct
   end
 end
