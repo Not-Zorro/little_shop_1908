@@ -20,7 +20,7 @@ navy_legend = eric.items.create(name: "Pacific Legend Plumeria Hibiscus - Navy",
 grey_quiksilver = eric.items.create(name: "Pacific Legend Plumeria Hibiscus - Navy", description: "Authentic Hawaiian shirts made in Honolulu, Hawaii by Pacific Legend. Our shirts are made with 100% cotton, with a spread collar and cool, lightweight fabric. Short sleeve, collared shirt with full cut neckline. The quality of our shirt is demonstrated by our pattern matching pockets. Each pocket is specifically cut to match the print of the shirt. Buttons are made from genuine coconut shells. Machine washable but allow for shrinkage when choosing sizes. You’ll be in awe of how fun and colorful these shirts really are.", price: 25, image: "https://cdni.llbean.net/is/image/wim/273137_671_41?hei=302&wid=265", inventory: 5)
 
 #leiya items
-w_flannel_1 = leiya.items.create(name: "Black Stewart Tartan", description: "Scotch Plaid Flannel Shirt, Relaxed", price: 24, image: @images["1"] , inventory: 32)
+w_flannel_1 = leiya.items.create(name: "Black Stewart Tartan", description: "Scotch Plaid Flannel Shirt, Relaxed", price: 24, image: @images["red_flannel"] , inventory: 32)
 w_flannel_2 = leiya.items.create(name: "Black Watch", description: "Scotch Plaid Flannel Shirt, Relaxed", price: 24, image: "https://cdni.llbean.net/is/image/wim/273137_671_41?hei=302&wid=265", inventory: 21)
 
 #hill items 

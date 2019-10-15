@@ -13,62 +13,63 @@
  *= require_tree .
  *= require_self
  */
- * {
-   box-sizing: border-box;
- }
+* {
+  box-sizing: border-box;
+}
 
- body {
-   display: grid;
-   background-color: white;
-   height: 100vh;
-   font-family: 'Questrial', sans-serif;
-   grid-template-rows: 50px 1fr;
-   margin: 0;
-  }
+body {
+  display: grid;
+  background-color: white;
+  height: 100vh;
+  font-family: 'Questrial', sans-serif;
+  grid-template-rows: 50px 1fr;
+  margin: 0;
+}
 
-  header {
-    background: black;
-    text-align: center;
-  }
-
-  header p {
-    color: white;
-  }
-
-  .cart_div {
-    display: flex;
-    justify-content: center;
-    vertical-align: baseline;
-  }
-  
-  .cart_div p {
-    margin: 8px 8px 0;
-    font-size: 1.4rem;
-  }
-  
-  main {
-   display: grid;
-   height: 100vh;
-   background-color: #f2f2f2;
-   grid-template-columns: 1fr 2fr;
- }
-
- aside {
-   display: flex;
-   flex-direction: column;
- }
-
- h1 {
+header {
+  background: black;
   text-align: center;
- 	font-size: 40px;
- 	color: #002244;
- }
+}
 
-ul{
+header p {
+  color: white;
+}
+
+.cart_div {
+  display: flex;
+  justify-content: center;
+  vertical-align: baseline;
+}
+
+.cart_div p {
+  margin: 8px 8px 0;
+  font-size: 1.4rem;
+}
+
+main {
+  display: grid;
+  height: 100vh;
+  background-color: #f2f2f2;
+  grid-template-columns: 1fr 2fr;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #002244;
+}
+
+ul {
   padding: 0px;
   text-align: center;
 }
-img{
+
+img {
   width: 90%;
 }
 
@@ -77,8 +78,8 @@ img{
 }
 
 .cart_add_svg {
- height: 36px;
- width: 36px;
+  height: 36px;
+  width: 36px;
 }
 
 .cart_add_button {
@@ -93,95 +94,64 @@ img{
   cursor: pointer;
 }
 
- .grid-container{
- 	display: grid;
- 	grid-template-columns: repeat(5,1fr);
- 	grid-template-rows: auto;
+.grid-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: auto;
   grid-gap: 30px;
-  margin: 0 auto;
-   
- }
+  margin: 0 auto; 
+}
 
- .grid-item{
- 	background-color: white;
- 	padding: 20px;
-  border: solid;
- 	border-radius: 12px;
-  border-color: #002244;
-   text-align: center;
- }
- .item-show-grid{
-  width: 60%;
- 	display: grid;
+.grid-item {
+  background-color: white;
+  padding: 20px;
   border: solid;
   border-radius: 12px;
- 	grid-template-columns: repeat(2,1fr);
- }
+  border-color: #002244;
+  text-align: center;
+}
 
- .item-show-item{
- 	padding: 20px;
- 	text-align: right;
- }
+.item-show-grid {
+  width: 60%;
+  display: grid;
+  border: solid;
+  border-radius: 12px;
+  grid-template-columns: repeat(2,1fr);
+}
 
- .topnav {
-   overflow: hidden;
-   justify-content: center;
-   align-items: center;
-   background-color: #002244;
- }
+.item-show-item {
+  background-color: white;
+  padding: 20px;
+  text-align: right;
+}
 
- .topnav a {
-   color: #f2f2f2;
-   padding: 10px 0;
-   text-align: center;
-   text-decoration: none;
-   font-size: 17px;
-   border-bottom: 3px solid transparent;
-   width: 200px;
- }
+.topnav {
+  overflow: hidden;
+  align-items: center;
+  background-color: #002244;
+  padding-top: 300px;
+}
 
- .topnav a:hover {
-   border-bottom: 3px solid tomato;
-   color: white;
- }
+.topnav a {
+  color: #f2f2f2;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
+  width: 200px;
+}
 
- .address{
-   text-align: center;
- }
+.topnav a:hover {
+  border-bottom: 3px solid tomato;
+  color: white;
+}
 
- /* input[type=text], select, option {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-} */
+.address {
+  text-align: center;
+}
 
 select {
   height: 40px;
-}
-
-/* input[type=submit] {
-  width: 100%;
-  background-color: #17BEBB;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-} */
-
-/* input[type=submit]:hover {
-  background-color: #45a049;
-} */
-
-form {
-  align-content: center;
-  margin: 20% auto 0;
-  background-color: #f2f2f2;
-  padding: 20px;
-  width: 60%;
 }
