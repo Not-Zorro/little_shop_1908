@@ -1,34 +1,44 @@
 <center>
   <section class = "item-show-grid" id="item-show-<%= @item.id %>">
     <h1><%= @item.name %></h1>
-    <p align="center">Sold by: <%=link_to @item.merchant.name, "/merchants/#{@item.merchant.id}" %> </p>
+    <p>Sold by: <%=link_to @item.merchant.name, "/merchants/#{@item.merchant.id}" %> </p>
+    <section class="item-controls">
+      <%= link_to "Edit Item", "/items/#{@item.id}/edit" %>
+      <% if !@item.has_orders? %>
+      <%= link_to "Delete Item", "/items/#{@item.id}", method: :delete %>
+      <% end %>
+    </section>
     <section class = "item-show-item">
       <img src= <%= @item.image %>>
     </section>
-    <section style="text-align:left" class = "item-show-item" >
+    <section class = "item-show-item" >
       <p><%= @item.description %></p>
       <p>Price: <%= number_to_currency(@item.price) %> </p>
       <p>Inventory: <%= @item.inventory %> </p>
       <% if @item.active? %>
-        <p style= "color:green">Active</p>
+        <p>Active</p>
       <% else %>
-        <p style= "color:red">Inactive</p>
+        <p>Inactive</p>
       <% end %>
       <p>Average rating: <%= @review_average %></p>
-      <p>Best Reviews</p>
+    </section>
+    <p><%= link_to "Add new review", "/items/#{@item.id}/reviews/new" %></p>
+    <section class="best-worst-reviews">
       <section id="best-review-stats">
+        <p>Best Reviews</p>
         <% @item.best_reviews.each do |review| %>
           <p><%= review.title %>, Rating: <%= review.rating %></p>
         <% end %>
       </section>
 
-      <p>Worst Reviews</p>
       <section id="worst-review-stats">
+        <p>Worst Reviews</p>
         <% @item.worst_reviews.each do |review| %>
           <p><%= review.title %>, Rating: <%= review.rating %></p>
         <% end %>
       </section>
-
+  </section>
+    <section>
       <p>Reviews</p>
         <% @item.reviews.each do |review| %>
           <section id="item-review-<%= review.id %>">
@@ -40,11 +50,6 @@
 
           </section>
         <% end %>
-      <p><%= link_to "Add new review", "/items/#{@item.id}/reviews/new" %></p>
-      <p><%= link_to "Edit Item", "/items/#{@item.id}/edit" %></p>
-      <% if !@item.has_orders? %>
-        <p><%= link_to "Delete Item", "/items/#{@item.id}", method: :delete %></p>
-      <% end %>
+      </section>
     </section>
-  </section>
 </center>

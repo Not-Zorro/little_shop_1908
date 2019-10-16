@@ -1,28 +1,35 @@
 <h1>Your Cart</h1>
-
-<section class="cart-section">
-  <% @items.each do |item, quantity| %>
-    <section id="item-cart-<%= item.id %>">
-      <%= image_tag(item.image) %>
-      <p>Name: <%= item.name %></p>
-      <p>Sold by: <%= item.merchant.name %></p>
-      <p>Price: <%= number_to_currency(item.price) %></p>
-      <p>Quantity: <%= quantity %></p>
-      <p>Subtotal: <%= number_to_currency(item.subtotal(quantity)) %></p>
-      <%= button_to 'Remove From Cart', "/cart/#{item.id}", method: :delete %>
-      <%= button_to "/cart/#{item.id}/add_item", method: :patch, class: "cart_add_button" do %>
-          <svg class="cart_add_svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
-      <% end %>
-      <%= button_to "/cart/#{item.id}/subtract_item", method: :patch, class: "cart_subtract_button" do %>
-          <svg class="cart_add_svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
-      <% end %>
-    </section>
-  <% end %>
+<section class="cart-controls">
   <% if @items.empty? %>
     <p>Your Cart is Empty</p>
   <% else %>
     <p>Grand total: <%= number_to_currency(cart.grand_total) %></p>
     <%= link_to "Empty Cart", '/cart/empty', method: :delete %>
     <%= link_to "Proceed to checkout", '/cart/checkout' %>
+  <% end %>
+</section>
+<section class="cart-section">
+  <% @items.each do |item, quantity| %>
+    <section class="cart-card" id="item-cart-<%= item.id %>">
+      <%= image_tag(item.image, class: "cart-image") %>
+      <section class="cart-card-info">
+        <p>Name: <%= item.name %></p>
+        <p>Sold by: <%= item.merchant.name %></p>
+        <p>Price: <%= number_to_currency(item.price) %></p>
+        <p>Subtotal: <%= number_to_currency(item.subtotal(quantity)) %></p>
+        <section class="cart-buttons">
+          <p>Quantity: <%= quantity %></p>
+          <section class="increment-buttons">
+            <%= button_to "/cart/#{item.id}/subtract_item", method: :patch, class: "cart_subtract_button" do %>
+            <svg class="cart_add_svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+            <% end %>
+            <%= button_to "/cart/#{item.id}/add_item", method: :patch, class: "cart_add_button" do %>
+            <svg class="cart_add_svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+            <% end %>
+          </section>
+          <%= button_to 'Remove From Cart', "/cart/#{item.id}", method: :delete, class: "remove-card-button" %>
+        </section>
+      </section>
+    </section>
   <% end %>
 </section>
