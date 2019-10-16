@@ -11,7 +11,7 @@ describe "Cart Index" do
     dog_bone = brian.items.create(name: "Dog Bone", description: "They'll love it!", price: 20, image: "https://img.chewy.com/is/image/catalog/54226_MAIN._AC_SL1500_V1534449573_.jpg", inventory: 21)
     visit '/cart'
 
-    within ".cart-section" do
+    within ".cart-controls" do
       expect(page).to have_content("Your Cart is Empty")
     end
 
@@ -46,7 +46,7 @@ describe "Cart Index" do
       expect(page).to have_css("img[src*='#{dog_bone.image}']")
     end
 
-    within ".cart-section" do
+    within ".cart-controls" do
       expect(page).to have_content("Grand total: $50")
     end
   end

@@ -9,6 +9,6 @@
   <%= label_tag :rating %>
   <%= select_tag :rating, options_for_select([1, 2, 3, 4, 5], @review.rating) %>
 
-  <%= submit_tag 'Update Review' %>
+  <%= submit_tag 'Update Review', class: "submit-button" %>
 
 <% end %>

@@ -1,20 +1,24 @@
 <h1>Thank you for your order</h1>
-<section class="customer-info-section">
-  <p><%= customer.name %></p>
-  <p><%= customer.address %></p>
-  <p><%= customer.city %>, <%= customer.state %> <%= customer.zip %></p>
-</section>
-<section class="order-info-section">
-  <% @order.item_orders.each do |item_order| %>
-    <section id="item-order-<%= item_order.id %>">
-      <% item_info = item_order.item_info %>
-      <p><%= item_info[:name] %></p>
-      <p><%= item_info[:price] %></p>
-      <p><%= item_info[:merchant].name %></p>
-      <p><%= item_order[:quantity] %></p>
-      <p><%= number_to_currency(item_order[:subtotal]) %></p>
-    </section>
-  <% end %>
-  <p>Grand total: $<%= @order.grand_total %></p>
-  <p>Order placed on: <%= @order.date %></p>
+<section class="order-info">
+  <section class="customer-info-section">
+    <h3>Your Shipping Information:</h3>
+    <p><%= customer.name %></p>
+    <p><%= customer.address %></p>
+    <p><%= customer.city %>, <%= customer.state %> <%= customer.zip %></p>
+  </section>
+  <section class="order-info-section">
+    <h3>Order Information</h3>
+    <% @order.item_orders.each do |item_order| %>
+      <section id="item-order-<%= item_order.id %>">
+        <% item_info = item_order.item_info %>
+        <p>Item: <%= item_info[:name] %></p>
+        <p>Price: <%= number_to_currency(item_info[:price]) %></p>
+        <p>Seller: <%= item_info[:merchant].name %></p>
+        <p>Quantity: <%= item_order[:quantity] %></p>
+        <p><%= number_to_currency(item_order[:subtotal]) %></p>
+      </section>
+    <% end %>
+    <p>Grand total: <%= number_to_currency(@order.grand_total) %></p>
+    <p>Order placed on: <%= @order.date %></p>
+  </section>
 </section>
